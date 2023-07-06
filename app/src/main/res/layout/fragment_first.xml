@@ -15,7 +15,9 @@
         android:layout_height="49dp"
         android:layout_marginTop="20dp"
         android:text="@string/bienvenido_a_logo_trivia_ingresa_tu_nombre_para_comenzar"
+        android:textColor="#1243DD"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

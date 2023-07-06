@@ -8,15 +8,30 @@
         android:id="@+id/firstFragment"
         android:name="cl.samf.individual15y16.FirstFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment2"
+            app:destination="@id/secondFragment" />
+    </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="cl.samf.individual15y16.SecondFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+    </fragment>
     <fragment
         android:id="@+id/thirdFragment"
         android:name="cl.samf.individual15y16.ThirdFragment"
         android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
 </navigation>

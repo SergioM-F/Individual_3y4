@@ -11,7 +11,7 @@
         android:id="@+id/textViewEquivocaste"
         android:layout_width="347dp"
         android:layout_height="100dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="152dp"
         android:hint="@string/te_equivocaste"
         android:textColorHint="#8D6E63"
         app:layout_constraintEnd_toEndOf="parent"

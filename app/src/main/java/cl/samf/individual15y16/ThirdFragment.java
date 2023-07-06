@@ -3,10 +3,13 @@ package cl.samf.individual15y16;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import cl.samf.individual15y16.databinding.FragmentThirdBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +17,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ThirdFragment extends Fragment {
+
+    private FragmentThirdBinding binding;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +64,26 @@ public class ThirdFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third, container, false);
+        binding = FragmentThirdBinding.inflate(inflater, container, false);
+
+        int radioButtonId = getArguments().getInt("radioButtonId");
+        String nombre = getArguments().getString("nombre");
+
+        if (radioButtonId == R.id.radioButtonWsp) {
+            String mensajeCorrecto = "Genial " + nombre + " GANASTE!!!";
+            binding.textViewCorrecto.setText(mensajeCorrecto);
+            binding.textViewEquivocaste.setVisibility(View.GONE);  // Ocultar textViewEquivocaste
+        } else {
+            String mensajeEquivocado = "Te Equivocaste " + nombre + " Vuelve a Intentarlo";
+            binding.textViewEquivocaste.setText(mensajeEquivocado);
+            binding.textViewCorrecto.setVisibility(View.GONE);  // Ocultar textViewCorrecto
+        }
+
+        binding.buttonReintento.setOnClickListener(v -> {
+
+            Navigation.findNavController(getView()).navigate(R.id.action_thirdFragment_to_secondFragment);
+        });
+
+        return binding.getRoot();
     }
 }

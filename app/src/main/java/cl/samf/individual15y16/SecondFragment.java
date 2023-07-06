@@ -1,12 +1,18 @@
 package cl.samf.individual15y16;
 
+import android.os.Binder;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import cl.samf.individual15y16.databinding.FragmentFirstBinding;
+import cl.samf.individual15y16.databinding.FragmentSecondBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +20,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class SecondFragment extends Fragment {
+
+    private FragmentSecondBinding binding;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -50,7 +58,7 @@ public class SecondFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam1 = getArguments().getString("nombre");
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
@@ -58,7 +66,23 @@ public class SecondFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        binding = FragmentSecondBinding.inflate(getLayoutInflater(), container, false);
+        binding.TextviewSaludo.setText(mParam1);
+
+        binding.buttonEnviar.setOnClickListener(v -> {
+
+            int radioButtonId = binding.idRadioGroup.getCheckedRadioButtonId();
+            String nombre = getArguments().getString("nombre");
+
+            Bundle args = new Bundle();
+            args.putInt("radioButtonId", radioButtonId);
+            args.putString("nombre", nombre);
+
+            Navigation.findNavController(getView()).navigate(R.id.action_secondFragment_to_thirdFragment, args);
+        });
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        return binding.getRoot();
     }
 }
