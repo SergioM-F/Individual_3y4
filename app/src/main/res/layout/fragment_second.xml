@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondFragment">
+
+    <RadioGroup
+        android:id="@+id/idRadioGroup"
+        android:layout_width="250dp"
+        android:layout_height="209dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="TextSizeCheck">
+
+        <RadioButton
+            android:id="@+id/radioButtonFace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pertenece_a_facebook" />
+
+        <RadioButton
+            android:id="@+id/radioButtonInsta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pertenece_a_instagram" />
+
+        <RadioButton
+            android:id="@+id/radioButtonTik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pertenece_a_tiktok" />
+
+        <RadioButton
+            android:id="@+id/radioButtonWsp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pertenece_a_whatsapp" />
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="660dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="469dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/hola"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TextviewSaludo"
+        android:layout_width="106dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="343dp"
+        android:layout_height="214dp"
+        android:layout_marginBottom="92dp"
+        android:contentDescription="@string/imagen_a_mostrar"
+        android:src="@drawable/icons8_whatsapp"
+        app:layout_constraintBottom_toTopOf="@+id/idRadioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/textViewPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/a_que_aplicacion_corresponde_la_imagen"
+        app:layout_constraintBottom_toTopOf="@+id/idRadioGroup"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/buttonEnviar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enviar"
+        app:layout_constraintEnd_toEndOf="@+id/idRadioGroup"
+        app:layout_constraintStart_toStartOf="@+id/idRadioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/idRadioGroup" />
+</androidx.constraintlayout.widget.ConstraintLayout>
